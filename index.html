@@ -21,6 +21,7 @@
       background-color: #f9fafb;
     }
 
+    /* Navigation Bar */
     .navbar {
       position: sticky;
       top: 0;
@@ -30,7 +31,11 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    .reels-wrapper { position: relative; max-width: 100%; }
+    /* Reels Section */
+    .reels-wrapper {
+      position: relative;
+      max-width: 100%;
+    }
     .reels-container {
       display: flex;
       gap: 1.5rem;
@@ -73,6 +78,7 @@
       color: #111827;
     }
 
+    /* Scroll Buttons */
     .scroll-btn {
       position: absolute;
       top: 50%;
@@ -94,6 +100,7 @@
     .scroll-left { left: 1rem; }
     .scroll-right { right: 1rem; }
 
+    /* Animations */
     .fade-in {
       animation: fadeIn 1s ease-in-out;
     }
@@ -102,6 +109,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Responsive Adjustments */
     @media (max-width: 640px) {
       .reel-card { width: 240px; }
       .reel-card video { height: 400px; }
@@ -123,7 +131,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       z-index: 1000;
@@ -142,7 +149,7 @@
 </head>
 <body class="text-gray-900">
 
-  <!-- Hero Section -->
+  <!-- Navigation Bar -->
   <nav class="navbar py-4 px-6">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-purple-700">CORTEX</h1>
@@ -154,6 +161,7 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="bg-gradient-to-r from-purple-700 to-blue-700 text-white py-24 px-6 text-center fade-in">
     <h1 class="text-5xl md:text-6xl font-extrabold mb-6">CORTEX DEV</h1>
     <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">The Trusted Name in Color Trading Tool Development</p>
@@ -162,13 +170,12 @@
     </a>
   </section>
 
-  <!-- Reels Section -->
+  <!-- Video Reels Section -->
   <section id="work" class="py-16 px-6 max-w-7xl mx-auto fade-in">
     <h2 class="text-4xl font-bold text-center mb-10">Preview My Work</h2>
     <div class="reels-wrapper">
       <button class="scroll-btn scroll-left" onclick="scrollReels(-1)">❮</button>
       <div class="reels-container" id="reels">
-        <!-- Video Cards (same as before) -->
         <!-- Reel 1 -->
         <div class="reel-card">
           <video controls preload="metadata">
@@ -179,8 +186,7 @@
             <p>Multi-layer detection with authorized login, register & balance check, API-based predictions, and sleek UI.</p>
           </div>
         </div>
-        <!-- Add other videos (2-5) as in your last code -->
-        <!-- ... -->
+        <!-- (Other videos remain unchanged) -->
       </div>
       <button class="scroll-btn scroll-right" onclick="scrollReels(1)">❯</button>
     </div>
@@ -227,11 +233,13 @@
   </section>
 
   <!-- Floating Telegram Button -->
-  <a href="thank-you.html" class="cta-button" title="Contact Manager">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M9.999 15.17L9.999 12.989L15.999 8.989L9.999 11.17L9.999 8.989L3.999 8.989L3.999 15.17zM12 0C5.373 0 0 5.373 0 12C0 18.627 5.373 24 12 24C18.627 24 24 18.627 24 12C24 5.373 18.627 0 12 0Z"></path>
-    </svg>
-  </a>
+<a href="thank-you.html" class="cta-button" title="Contact Manager">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+    <circle cx="120" cy="120" r="120" fill="white" opacity="0.1"/>
+    <path fill="white" d="M200 40L160 200c-2 9-8 11-15 7l-40-29-19 18c-2 2-4 4-8 4l3-41 76-68c3-3-1-5-4-2l-94 59-40-13c-9-3-9-9 2-13l156-60c7-3 14 2 12 11z"/>
+  </svg>
+</a>
+
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white text-center py-6">
