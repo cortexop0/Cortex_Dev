@@ -11,14 +11,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+
+    /* Reels Section */
+    .reels-wrapper {
+      position: relative;
+      max-width: 100%;
+    }
     .reels-container {
       display: flex;
       gap: 1rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding: 1rem;
+      padding: 1rem 2.5rem;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
     .reels-container::-webkit-scrollbar { display: none; }
     .reel-card {
@@ -38,7 +45,8 @@
     .reel-card video {
       width: 100%;
       height: 450px;
-      object-fit: cover;
+      object-fit: contain;
+      background: #000;
     }
     .reel-description {
       padding: 0.75rem;
@@ -50,77 +58,100 @@
       margin-bottom: 0.3rem;
       font-size: 1rem;
     }
-    .reel-description ul {
-      margin-left: 1rem;
-      list-style: disc;
+
+    /* Scroll Buttons */
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s ease;
     }
+    .scroll-btn:hover { background: rgba(0, 0, 0, 0.7); }
+    .scroll-left { left: 0.5rem; }
+    .scroll-right { right: 0.5rem; }
+
+    /* Smooth Animations */
+    .fade-in { animation: fadeIn 0.8s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16 px-6 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">CORTEX DEV</h1>
-    <p class="text-lg md:text-xl mb-6">Trusted Prediction Tool Developer for Telegram Channels</p>
-    <a href="https://t.me/cortex_manager" target="_blank" class="bg-white text-purple-700 px-6 py-3 rounded-2xl font-semibold hover:bg-gray-100 transition">
+  <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20 px-6 text-center fade-in">
+    <h1 class="text-5xl font-bold mb-4">CORTEX DEV</h1>
+    <p class="text-xl mb-6">Trusted Prediction Tool Developer for Telegram Channels</p>
+    <a href="https://t.me/cortex_manager" target="_blank" class="bg-white text-purple-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
       Contact Manager
     </a>
   </section>
 
   <!-- Video Reels Section -->
-  <section class="py-12 px-6 max-w-6xl mx-auto">
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Preview My Work</h2>
-    <div class="reels-container" id="reels">
-      <!-- Reel 1 -->
-      <div class="reel-card">
-        <video controls preload="metadata">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/zndvo6x6l2cb331timr2z/document_6217442744143450921.mp4?rlkey=6n8fem110xgi9a6pe3seaa7uo" type="video/mp4" />
-        </video>
-        <div class="reel-description">
-          <h3>New Prediction Tool</h3>
-          <p>Multiple detections with authorized login, register check, balance check, and auto prediction with a cool UI. API-based with last 10 results.</p>
+  <section class="py-12 px-6 max-w-7xl mx-auto fade-in">
+    <h2 class="text-3xl font-bold text-center mb-8">Preview My Work</h2>
+    <div class="reels-wrapper">
+      <button class="scroll-btn scroll-left" onclick="scrollReels(-1)">&#10094;</button>
+      <div class="reels-container" id="reels">
+        <!-- Reel 1 -->
+        <div class="reel-card">
+          <video controls preload="metadata">
+            <source src="https://dl.dropboxusercontent.com/scl/fi/zndvo6x6l2cb331timr2z/document_6217442744143450921.mp4?rlkey=6n8fem110xgi9a6pe3seaa7uo" type="video/mp4" />
+          </video>
+          <div class="reel-description">
+            <h3>New Prediction Tool</h3>
+            <p>Multi-layer detection with authorized login, register & balance check, API-based predictions, and sleek UI.</p>
+          </div>
+        </div>
+        <!-- Reel 2 -->
+        <div class="reel-card">
+          <video controls preload="metadata">
+            <source src="https://dl.dropboxusercontent.com/scl/fi/l833cx1v6862geuekfxef/document_6201547701541147745.mp4?rlkey=adng664a25attipzjdkz4regx" type="video/mp4" />
+          </video>
+          <div class="reel-description">
+            <h3>Nine-Tailed Beast - Kurama Mods</h3>
+            <p>Powerful online script control with customizable prediction algorithms.</p>
+          </div>
+        </div>
+        <!-- Reel 3 -->
+        <div class="reel-card">
+          <video controls preload="metadata">
+            <source src="https://dl.dropboxusercontent.com/scl/fi/9azfw6dali87dndjuzhzx/document_6118263741596308674.mp4?rlkey=1wdnkmw2eif177qhbzy3b1uo9" type="video/mp4" />
+          </video>
+          <div class="reel-description">
+            <h3>API-Based Project</h3>
+            <p>Live results, multiple detections, deposit checks, and automated predictions with modern UI.</p>
+          </div>
+        </div>
+        <!-- Reel 4 -->
+        <div class="reel-card">
+          <video controls preload="metadata">
+            <source src="https://dl.dropboxusercontent.com/scl/fi/doxquouhhl1d7sa1erz0s/document_6055605610471233963.mp4?rlkey=3puqlw05sjrgmlf7tm5o2g1wx" type="video/mp4" />
+          </video>
+          <div class="reel-description">
+            <h3>Madara Uchiha Tool</h3>
+            <p>Advanced multi-algorithm tool for maximum prediction accuracy and premium features.</p>
+          </div>
+        </div>
+        <!-- Reel 5 -->
+        <div class="reel-card">
+          <video controls preload="metadata">
+            <source src="https://dl.dropboxusercontent.com/scl/fi/i2c76w3dk12501etsfs41/document_6296063636620186441.mp4?rlkey=8aruwinm5w0lbo6y7fz5nxl9k" type="video/mp4" />
+          </video>
+          <div class="reel-description">
+            <h3>Firebase Premium Panels</h3>
+            <p>Key generation, coin management, reseller access, expiry controls, and FCM notifications.</p>
+          </div>
         </div>
       </div>
-      <!-- Reel 2 -->
-      <div class="reel-card">
-        <video controls preload="metadata">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/l833cx1v6862geuekfxef/document_6201547701541147745.mp4?rlkey=adng664a25attipzjdkz4regx" type="video/mp4" />
-        </video>
-        <div class="reel-description">
-          <h3>Nine-Tailed Beast - Kurama Mods</h3>
-          <p>Powerful online script control with customizable prediction algorithms and seamless integration.</p>
-        </div>
-      </div>
-      <!-- Reel 3 -->
-      <div class="reel-card">
-        <video controls preload="metadata">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/9azfw6dali87dndjuzhzx/document_6118263741596308674.mp4?rlkey=1wdnkmw2eif177qhbzy3b1uo9" type="video/mp4" />
-        </video>
-        <div class="reel-description">
-          <h3>API-Based Project</h3>
-          <p>Latest 10 results, multiple detections (login, register, deposit, balance), auto prediction and a modern interface.</p>
-        </div>
-      </div>
-      <!-- Reel 4 -->
-      <div class="reel-card">
-        <video controls preload="metadata">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/doxquouhhl1d7sa1erz0s/document_6055605610471233963.mp4?rlkey=3puqlw05sjrgmlf7tm5o2g1wx" type="video/mp4" />
-        </video>
-        <div class="reel-description">
-          <h3>Madara Uchiha Tool</h3>
-          <p>Advanced multi-algorithm prediction tool, optimized for best performance and packed with new features.</p>
-        </div>
-      </div>
-      <!-- Reel 5 -->
-      <div class="reel-card">
-        <video controls preload="metadata">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/i2c76w3dk12501etsfs41/document_6296063636620186441.mp4?rlkey=8aruwinm5w0lbo6y7fz5nxl9k" type="video/mp4" />
-        </video>
-        <div class="reel-description">
-          <h3>Firebase Premium Panels</h3>
-          <p>Key generation (1/2/All devices), coin management, reseller support, expiry control, FCM notifications, and maintenance mode.</p>
-        </div>
-      </div>
+      <button class="scroll-btn scroll-right" onclick="scrollReels(1)">&#10095;</button>
     </div>
     <div class="text-center mt-8">
       <a href="https://t.me/preview_mod_ui" target="_blank" class="bg-purple-600 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-purple-700 transition">
@@ -130,22 +161,21 @@
   </section>
 
   <!-- About Section -->
-  <section class="bg-white py-12 px-6 max-w-4xl mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">Why Choose CORTEX DEV?</h2>
+  <section class="bg-white py-12 px-6 max-w-4xl mx-auto text-center fade-in">
+    <h2 class="text-3xl font-bold mb-4">Why Choose CORTEX DEV?</h2>
     <p class="text-gray-600 mb-4">
-      I am an experienced app developer specializing in high-quality prediction tools for Telegram channel owners.
-      My tools are tested, efficient, and customized to your needs.
+      I specialize in developing high-quality prediction tools for Telegram channel owners. My work ensures performance, reliability, and scalability.
     </p>
     <ul class="text-gray-700 text-left inline-block">
       <li>✅ Proven track record with multiple projects</li>
       <li>✅ Fast delivery & responsive support</li>
-      <li>✅ Trusted by many Telegram channel owners</li>
+      <li>✅ Trusted by Telegram channel owners globally</li>
     </ul>
   </section>
 
   <!-- Contact Section -->
-  <section class="bg-gray-100 py-12 px-6 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6">Get in Touch</h2>
+  <section class="bg-gray-100 py-12 px-6 text-center fade-in">
+    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
     <div class="flex flex-col sm:flex-row justify-center gap-4">
       <a href="https://t.me/Cortex_Dev" target="_blank" class="bg-blue-500 text-white px-6 py-3 rounded-2xl hover:bg-blue-600 transition">Telegram Channel</a>
       <a href="https://www.youtube.com/@CORTEXMOD" target="_blank" class="bg-red-500 text-white px-6 py-3 rounded-2xl hover:bg-red-600 transition">YouTube</a>
@@ -168,6 +198,13 @@
         });
       });
     });
+
+    // Horizontal scroll buttons
+    const reelsContainer = document.getElementById('reels');
+    function scrollReels(direction) {
+      const scrollAmount = 300;
+      reelsContainer.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
