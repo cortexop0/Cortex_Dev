@@ -20,29 +20,39 @@
       padding: 1rem;
       -webkit-overflow-scrolling: touch;
     }
-    .reels-container::-webkit-scrollbar {
-      display: none; /* Hide scrollbar */
-    }
+    .reels-container::-webkit-scrollbar { display: none; }
     .reel-card {
       flex: 0 0 auto;
-      width: 250px;
-      height: 450px;
-      background: #000;
+      width: 260px;
+      background: #fff;
       border-radius: 1rem;
       overflow: hidden;
-      position: relative;
       scroll-snap-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .reel-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
     .reel-card video {
       width: 100%;
-      height: 100%;
+      height: 450px;
       object-fit: cover;
+    }
+    .reel-description {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .reel-description h3 {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+    .reel-description ul {
+      margin-left: 1rem;
+      list-style: disc;
     }
   </style>
 </head>
@@ -60,31 +70,56 @@
   <!-- Video Reels Section -->
   <section class="py-12 px-6 max-w-6xl mx-auto">
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Preview My Work</h2>
-    <div class="reels-container">
+    <div class="reels-container" id="reels">
+      <!-- Reel 1 -->
       <div class="reel-card">
         <video controls preload="metadata">
           <source src="https://dl.dropboxusercontent.com/scl/fi/zndvo6x6l2cb331timr2z/document_6217442744143450921.mp4?rlkey=6n8fem110xgi9a6pe3seaa7uo" type="video/mp4" />
         </video>
+        <div class="reel-description">
+          <h3>New Prediction Tool</h3>
+          <p>Multiple detections with authorized login, register check, balance check, and auto prediction with a cool UI. API-based with last 10 results.</p>
+        </div>
       </div>
+      <!-- Reel 2 -->
       <div class="reel-card">
         <video controls preload="metadata">
           <source src="https://dl.dropboxusercontent.com/scl/fi/l833cx1v6862geuekfxef/document_6201547701541147745.mp4?rlkey=adng664a25attipzjdkz4regx" type="video/mp4" />
         </video>
+        <div class="reel-description">
+          <h3>Nine-Tailed Beast - Kurama Mods</h3>
+          <p>Powerful online script control with customizable prediction algorithms and seamless integration.</p>
+        </div>
       </div>
+      <!-- Reel 3 -->
       <div class="reel-card">
         <video controls preload="metadata">
           <source src="https://dl.dropboxusercontent.com/scl/fi/9azfw6dali87dndjuzhzx/document_6118263741596308674.mp4?rlkey=1wdnkmw2eif177qhbzy3b1uo9" type="video/mp4" />
         </video>
+        <div class="reel-description">
+          <h3>API-Based Project</h3>
+          <p>Latest 10 results, multiple detections (login, register, deposit, balance), auto prediction and a modern interface.</p>
+        </div>
       </div>
+      <!-- Reel 4 -->
       <div class="reel-card">
         <video controls preload="metadata">
           <source src="https://dl.dropboxusercontent.com/scl/fi/doxquouhhl1d7sa1erz0s/document_6055605610471233963.mp4?rlkey=3puqlw05sjrgmlf7tm5o2g1wx" type="video/mp4" />
         </video>
+        <div class="reel-description">
+          <h3>Madara Uchiha Tool</h3>
+          <p>Advanced multi-algorithm prediction tool, optimized for best performance and packed with new features.</p>
+        </div>
       </div>
+      <!-- Reel 5 -->
       <div class="reel-card">
         <video controls preload="metadata">
           <source src="https://dl.dropboxusercontent.com/scl/fi/i2c76w3dk12501etsfs41/document_6296063636620186441.mp4?rlkey=8aruwinm5w0lbo6y7fz5nxl9k" type="video/mp4" />
         </video>
+        <div class="reel-description">
+          <h3>Firebase Premium Panels</h3>
+          <p>Key generation (1/2/All devices), coin management, reseller support, expiry control, FCM notifications, and maintenance mode.</p>
+        </div>
       </div>
     </div>
     <div class="text-center mt-8">
@@ -122,5 +157,17 @@
   <footer class="bg-gray-900 text-white text-center py-4">
     <p>© 2025 CORTEX DEV | All rights reserved.</p>
   </footer>
+
+  <script>
+    // Ensure only one video plays at a time
+    const videos = document.querySelectorAll("video");
+    videos.forEach(video => {
+      video.addEventListener("play", () => {
+        videos.forEach(otherVideo => {
+          if (otherVideo !== video) otherVideo.pause();
+        });
+      });
+    });
+  </script>
 </body>
 </html>
