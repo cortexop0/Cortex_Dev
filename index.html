@@ -102,12 +102,11 @@
     .scroll-left { left: 1rem; }
     .scroll-right { right: 1rem; }
 
- /* Floating CTA Button */
 .cta-button {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  background: linear-gradient(to right, #9333ea, #3b82f6);
+  background: linear-gradient(to right, #0088cc, #36aee2); /* Telegram blue */
   color: white;
   width: 60px;
   height: 60px;
@@ -122,8 +121,9 @@
 }
 .cta-button:hover {
   transform: scale(1.1);
-  background: linear-gradient(to right, #7e22ce, #2563eb);
+  background: linear-gradient(to right, #007ab8, #249ac9);
 }
+
 
     /* Animations */
     .fade-in {
@@ -306,10 +306,11 @@
       });
     });
   </script>
-    <!-- Floating Contact Button -->
-  <a href="https://t.me/cortex_manager" class="cta-button" target="_blank" title="C">
-    ✉️
-  </a>
-
+ <!-- Floating Contact Button -->
+<a href="https://t.me/cortex_manager" class="cta-button" target="_blank" title="Contact Manager">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28px" height="28px">
+    <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.53 8.5l-1.9 9c-.14.64-.51.79-1.03.49l-2.87-2.12-1.39 1.33c-.15.14-.27.26-.55.26l.2-2.98 5.43-4.91c.24-.21-.05-.33-.38-.12l-6.7 4.22-2.9-.9c-.63-.2-.64-.63.13-.93l11.3-4.36c.52-.19.97.12.8.93z"/>
+  </svg>
+</a>
 </body>
 </html>
