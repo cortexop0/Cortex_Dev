@@ -3,45 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting...</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Thank You - CORTEX</title>
+  <script>
+    // Redirect after 3 seconds
+    setTimeout(() => {
+      window.location.href = "https://t.me/cortex_manager";
+    }, 3000);
+  </script>
   <style>
     body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
       background: linear-gradient(to right, #6d28d9, #2563eb);
       color: white;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
-      font-family: 'Inter', sans-serif;
       text-align: center;
     }
-    .icon {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 20px;
-      animation: pulse 1.5s infinite;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.7; }
+    p {
+      font-size: 1.2rem;
     }
   </style>
 </head>
 <body>
-  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-    <path d="M12 0C5.373 0 0 5.373 0 12C0 18.627 5.373 24 12 24C18.627 24 24 18.627 24 12C24 5.373 18.627 0 12 0ZM10.5 17.5V13.2L16.2 9.5L10.5 12.7V9.5L4.5 9.5V17.5H10.5Z"/>
-  </svg>
-  <h1 class="text-3xl font-bold mb-4">Redirecting you to Telegram...</h1>
-  <p class="text-lg">Please wait while we take you there.</p>
-
-  <!-- Meta Pixel Lead Event -->
-  <script>
-    fbq('track', 'Lead');
-    setTimeout(() => {
-      window.location.href = "https://t.me/cortex_manager";
-    }, 1500);
-  </script>
+  <h1>Thank You for Visiting!</h1>
+  <p>You are being redirected to our Manager in Telegram...</p>
+  <p>If not redirected, <a href="https://t.me/cortex_manager" style="color:#fff; text-decoration:underline;">click here</a>.</p>
 </body>
 </html>
