@@ -12,20 +12,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body { font-family: 'Inter', sans-serif; }
-    .video-card {
-      border-radius: 0.75rem;
+    .reels-container {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .reels-container::-webkit-scrollbar {
+      display: none; /* Hide scrollbar */
+    }
+    .reel-card {
+      flex: 0 0 auto;
+      width: 250px;
+      height: 450px;
+      background: #000;
+      border-radius: 1rem;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      position: relative;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .video-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    .reel-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
-    video {
+    .reel-card video {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -40,34 +57,33 @@
     </a>
   </section>
 
-  <!-- Video Preview Section -->
+  <!-- Video Reels Section -->
   <section class="py-12 px-6 max-w-6xl mx-auto">
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Preview My Work</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="video-card">
-        <video controls poster="https://placehold.co/600x400?text=Preview+1">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/zndvo6x6l2cb331timr2z/document_6217442744143450921.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+    <div class="reels-container">
+      <div class="reel-card">
+        <video controls preload="metadata">
+          <source src="https://dl.dropboxusercontent.com/scl/fi/zndvo6x6l2cb331timr2z/document_6217442744143450921.mp4?rlkey=6n8fem110xgi9a6pe3seaa7uo" type="video/mp4" />
         </video>
       </div>
-      <div class="video-card">
-        <video controls poster="https://placehold.co/600x400?text=Preview+2">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/l833cx1v6862geuekfxef/document_6201547701541147745.mp4" type="video/mp4">
+      <div class="reel-card">
+        <video controls preload="metadata">
+          <source src="https://dl.dropboxusercontent.com/scl/fi/l833cx1v6862geuekfxef/document_6201547701541147745.mp4?rlkey=adng664a25attipzjdkz4regx" type="video/mp4" />
         </video>
       </div>
-      <div class="video-card">
-        <video controls poster="https://placehold.co/600x400?text=Preview+3">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/9azfw6dali87dndjuzhzx/document_6118263741596308674.mp4" type="video/mp4">
+      <div class="reel-card">
+        <video controls preload="metadata">
+          <source src="https://dl.dropboxusercontent.com/scl/fi/9azfw6dali87dndjuzhzx/document_6118263741596308674.mp4?rlkey=1wdnkmw2eif177qhbzy3b1uo9" type="video/mp4" />
         </video>
       </div>
-      <div class="video-card">
-        <video controls poster="https://placehold.co/600x400?text=Preview+4">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/doxquouhhl1d7sa1erz0s/document_6055605610471233963.mp4" type="video/mp4">
+      <div class="reel-card">
+        <video controls preload="metadata">
+          <source src="https://dl.dropboxusercontent.com/scl/fi/doxquouhhl1d7sa1erz0s/document_6055605610471233963.mp4?rlkey=3puqlw05sjrgmlf7tm5o2g1wx" type="video/mp4" />
         </video>
       </div>
-      <div class="video-card">
-        <video controls poster="https://placehold.co/600x400?text=Preview+5">
-          <source src="https://dl.dropboxusercontent.com/scl/fi/i2c76w3dk12501etsfs41/document_6296063636620186441.mp4" type="video/mp4">
+      <div class="reel-card">
+        <video controls preload="metadata">
+          <source src="https://dl.dropboxusercontent.com/scl/fi/i2c76w3dk12501etsfs41/document_6296063636620186441.mp4?rlkey=8aruwinm5w0lbo6y7fz5nxl9k" type="video/mp4" />
         </video>
       </div>
     </div>
