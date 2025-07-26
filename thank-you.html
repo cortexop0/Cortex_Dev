@@ -3,17 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You</title>
+  <meta name="description" content="Thank you for contacting CORTEX." />
+  <title>Thank You - CORTEX</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body class="bg-gray-100 text-center flex items-center justify-center h-screen">
-  <div>
+
+  <div class="fade-in">
     <h1 class="text-4xl font-bold text-purple-700 mb-4">Thank You!</h1>
-    <p class="text-lg text-gray-700 mb-6">Redirecting you to Telegram...</p>
-    <a href="https://t.me/cortex_manager" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition">
+    <p class="text-lg text-gray-700 mb-6">
+      We appreciate your interest. You'll be redirected to Telegram shortly...
+    </p>
+    <a href="https://t.me/cortex_manager" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition shadow-lg">
       Go to Telegram
     </a>
   </div>
+
+  <script>
+    // Track a lead event
+    fbq('track', 'Lead');
+
+    // Auto redirect after 3 seconds
+    setTimeout(() => {
+      window.location.href = "https://t.me/cortex_manager";
+    }, 3000);
+  </script>
+
 </body>
 </html>
