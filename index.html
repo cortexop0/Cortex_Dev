@@ -4,13 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="CORTEX - The Trusted Name in Color Trading Tool Development for Telegram Channels." />
-  <meta property="og:title" content="CORTEX - Color Trading Tool Developer" />
-  <meta property="og:description" content="The trusted name in developing advanced color trading tools for Telegram channels." />
   <title>CORTEX - Color Trading Tool Creator</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Meta Pixel Code -->
+  
+  <!-- Meta Pixel + CAPI Code -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,91 +18,38 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1563826825069654');
-fbq('track', 'PageView', {test_event_code: 'TEST31588'});
-
+    fbq('init', '1563826825069654'); // Pixel ID
+    fbq('track', 'PageView'); // Track site visit
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=674390248964869&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1563826825069654&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- End Meta Pixel Code -->
-
-  <!-- CAPI: ViewContent -->
-  <script>
-    fetch("https://graph.facebook.com/v20.0/674390248964869/events?access_token=EAAJlQzmwp6ABPDMFs5Ew3QhQrQlrU1gJXWFLRdMnZAhcqalZCBhk5ZBeb9TjSDzmNXfK5tr6aXQEFlokftkHLttffYzdiWORWA7qsQapQYdeCuUc71FpnBTZB1IkbrKpOTDRGDSk2JlahyckmKj4UZAB1kzi4hZAHfckqsXerXtTuDnZBhExcVkHZAlzjmNleqZBxGQZDZD", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: [
-          {
-            event_name: "ViewContent",
-            event_time: Math.floor(Date.now() / 1000),
-            action_source: "website",
-            event_source_url: window.location.href
-          }
-        ]
-      })
-    });
-  </script>
+  <!-- End Meta Pixel -->
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
-      background-color: #f9fafb;
-    }
-    /* Reels Section */
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; background-color: #f9fafb; }
+    .navbar { position: sticky; top: 0; z-index: 50; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
     .reels-wrapper { position: relative; max-width: 100%; }
-    .reels-container {
-      display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory;
-      padding: 1.5rem 3rem; -webkit-overflow-scrolling: touch; scrollbar-width: none;
-    }
+    .reels-container { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 1.5rem 3rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .reels-container::-webkit-scrollbar { display: none; }
-    .reel-card {
-      flex: 0 0 auto; width: 280px; background: #fff; border-radius: 1.25rem;
-      overflow: hidden; scroll-snap-align: center; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    .reel-card { flex: 0 0 auto; width: 280px; background: #fff; border-radius: 1.25rem; overflow: hidden; scroll-snap-align: center; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .reel-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
     .reel-card video { width: 100%; height: 460px; object-fit: cover; background: #000; }
     .reel-description { padding: 1rem; font-size: 0.95rem; color: #1f2937; }
     .reel-description h3 { font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; color: #111827; }
-
-    /* Scroll Buttons */
-    .scroll-btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.6); color: white; border: none; font-size: 1.5rem;
-      padding: 0.75rem 1.25rem; border-radius: 50%; cursor: pointer; z-index: 10;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
+    .scroll-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6); color: white; border: none; font-size: 1.5rem; padding: 0.75rem 1.25rem; border-radius: 50%; cursor: pointer; z-index: 10; transition: background 0.3s ease, transform 0.2s ease; }
     .scroll-btn:hover { background: rgba(0, 0, 0, 0.8); transform: translateY(-50%) scale(1.1); }
     .scroll-left { left: 1rem; }
     .scroll-right { right: 1rem; }
-
-    /* Floating Telegram Button */
-    .cta-button {
-      position: fixed; bottom: 20px; right: 20px;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: linear-gradient(to right, #6d28d9, #2563eb);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease;
-    }
+    .cta-button { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(to right, #6d28d9, #2563eb); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); transition: transform 0.2s ease; }
     .cta-button:hover { transform: scale(1.1); }
     .cta-button svg { width: 32px; height: 32px; }
-
-    /* Responsive */
-    @media (max-width: 640px) {
-      .reel-card { width: 240px; }
-      .reel-card video { height: 400px; }
-      .reels-container { padding: 1rem 1.5rem; }
-      .scroll-btn { font-size: 1.2rem; padding: 0.5rem 1rem; }
-    }
+    @media (max-width: 640px) { .reel-card { width: 240px; } .reel-card video { height: 400px; } .reels-container { padding: 1rem 1.5rem; } .scroll-btn { font-size: 1.2rem; padding: 0.5rem 1rem; } }
   </style>
 </head>
-
 <body class="text-gray-900">
+
   <!-- Navigation Bar -->
   <nav class="navbar py-4 px-6">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -121,7 +66,7 @@ fbq('track', 'PageView', {test_event_code: 'TEST31588'});
   <section class="bg-gradient-to-r from-purple-700 to-blue-700 text-white py-24 px-6 text-center fade-in">
     <h1 class="text-5xl md:text-6xl font-extrabold mb-6">CORTEX DEV</h1>
     <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">The Trusted Name in Color Trading Tool Development</p>
-    <a href="thank-you.html" onclick="trackContact()" class="bg-white text-purple-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg">
+    <a href="thank-you.html" onclick="fbq('track','Contact');" class="bg-white text-purple-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg">
       Contact Manager
     </a>
   </section>
@@ -142,7 +87,7 @@ fbq('track', 'PageView', {test_event_code: 'TEST31588'});
             <p>Multi-layer detection with authorized login, register & balance check, API-based predictions, and sleek UI.</p>
           </div>
         </div>
-        <!-- Reel 2 -->
+        <!-- Other reels ... -->
         <div class="reel-card">
           <video controls preload="metadata">
             <source src="https://dl.dropboxusercontent.com/scl/fi/l833cx1v6862geuekfxef/document_6201547701541147745.mp4?rlkey=adng664a25attipzjdkz4regx" type="video/mp4" />
@@ -152,7 +97,6 @@ fbq('track', 'PageView', {test_event_code: 'TEST31588'});
             <p>Powerful online script control with customizable prediction algorithms.</p>
           </div>
         </div>
-        <!-- Reel 3 -->
         <div class="reel-card">
           <video controls preload="metadata">
             <source src="https://dl.dropboxusercontent.com/scl/fi/9azfw6dali87dndjuzhzx/document_6118263741596308674.mp4?rlkey=1wdnkmw2eif177qhbzy3b1uo9" type="video/mp4" />
@@ -162,7 +106,6 @@ fbq('track', 'PageView', {test_event_code: 'TEST31588'});
             <p>Live results, multiple detections, deposit checks, and automated predictions with modern UI.</p>
           </div>
         </div>
-        <!-- Reel 4 -->
         <div class="reel-card">
           <video controls preload="metadata">
             <source src="https://dl.dropboxusercontent.com/scl/fi/doxquouhhl1d7sa1erz0s/document_6055605610471233963.mp4?rlkey=3puqlw05sjrgmlf7tm5o2g1wx" type="video/mp4" />
@@ -172,7 +115,6 @@ fbq('track', 'PageView', {test_event_code: 'TEST31588'});
             <p>Advanced multi-algorithm tool for maximum prediction accuracy and premium features.</p>
           </div>
         </div>
-        <!-- Reel 5 -->
         <div class="reel-card">
           <video controls preload="metadata">
             <source src="https://dl.dropboxusercontent.com/scl/fi/i2c76w3dk12501etsfs41/document_6296063636620186441.mp4?rlkey=8aruwinm5w0lbo6y7fz5nxl9k" type="video/mp4" />
@@ -186,91 +128,46 @@ fbq('track', 'PageView', {test_event_code: 'TEST31588'});
       <button class="scroll-btn scroll-right" onclick="scrollReels(1)">❯</button>
     </div>
     <div class="text-center mt-10">
-      <a href="https://t.me/preview_mod_ui" target="_blank" class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition shadow-lg">
+      <a href="https://t.me/preview_mod_ui" onclick="fbq('track','Subscribe');" target="_blank" class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition shadow-lg">
         View More on Telegram
       </a>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="bg-white py-16 px-6 max-w-5xl mx-auto text-center fade-in">
-    <h2 class="text-4xl font-bold mb-6">Why Choose CORTEX?</h2>
-    <p class="text-gray-600 text-lg mb-8 max-w-3xl mx-auto">
-      I specialize in developing high-quality color trading tools for Telegram channel owners, ensuring performance, reliability, and scalability.
-    </p>
   </section>
 
   <!-- Contact Section -->
   <section id="contact" class="bg-gray-100 py-16 px-6 text-center fade-in">
     <h2 class="text-4xl font-bold mb-8">Get in Touch</h2>
     <div class="flex flex-col sm:flex-row justify-center gap-6 max-w-3xl mx-auto">
-      <a href="https://t.me/Cortex_Dev" target="_blank" onclick="trackSubscribe('Telegram')" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg">
-        Telegram Channel
-      </a>
-      <a href="https://www.youtube.com/@CORTEXMOD" target="_blank" onclick="trackSubscribe('YouTube')" class="bg-red-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition shadow-lg">
-        YouTube
-      </a>
-      <a href="thank-you.html" onclick="trackContact()" class="bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition shadow-lg">
-        Contact Manager
-      </a>
+      <a href="https://t.me/Cortex_Dev" onclick="fbq('track','Subscribe');" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg">Telegram Channel</a>
+      <a href="https://www.youtube.com/@CORTEXMOD" onclick="fbq('track','Subscribe');" target="_blank" class="bg-red-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition shadow-lg">YouTube</a>
+      <a href="thank-you.html" onclick="fbq('track','Contact');" class="bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition shadow-lg">Contact Manager</a>
     </div>
   </section>
+
+  <!-- Floating Telegram Button -->
+  <a href="thank-you.html" onclick="fbq('track','Contact');" class="cta-button" title="Contact Manager">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+      <path fill="white" d="M200 40L160 200c-2 9-8 11-15 7l-40-29-19 18c-2 2-4 4-8 4l3-41 76-68c3-3-1-5-4-2l-94 59-40-13c-9-3-9-9 2-13l156-60c7-3 14 2 12 11z"/>
+    </svg>
+  </a>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white text-center py-6">
     <p class="text-sm">© 2025 CORTEX | All rights reserved.</p>
   </footer>
 
-  <!-- Floating Telegram Button -->
-  <a href="thank-you.html" onclick="trackContact()" class="cta-button" title="Contact Manager">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
-      <path fill="white" d="M200 40L160 200c-2 9-8 11-15 7l-40-29-19 18c-2 2-4 4-8 4l3-41 76-68c3-3-1-5-4-2l-94 59-40-13c-9-3-9-9 2-13l156-60c7-3 14 2 12 11z"/>
-    </svg>
-  </a>
-
-  <!-- Event Tracking Scripts -->
   <script>
-    function sendCAPIEvent(eventName, customData = {}) {
-      fetch("https://graph.facebook.com/v20.0/674390248964869/events?access_token=EAAJlQzmwp6ABPDMFs5Ew3QhQrQlrU1gJXWFLRdMnZAhcqalZCBhk5ZBeb9TjSDzmNXfK5tr6aXQEFlokftkHLttffYzdiWORWA7qsQapQYdeCuUc71FpnBTZB1IkbrKpOTDRGDSk2JlahyckmKj4UZAB1kzi4hZAHfckqsXerXtTuDnZBhExcVkHZAlzjmNleqZBxGQZDZD", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          data: [
-            {
-              event_name: eventName,
-              event_time: Math.floor(Date.now() / 1000),
-              action_source: "website",
-              event_source_url: window.location.href,
-              custom_data: customData
-            }
-          ]
-        })
-      });
-    }
-
-    function trackContact() {
-      fbq('track', 'Contact');
-      sendCAPIEvent('Contact');
-    }
-
-    function trackSubscribe(platform) {
-      fbq('track', 'Subscribe', { content_name: platform });
-      sendCAPIEvent('Subscribe', { platform: platform });
-    }
-
-    function scrollReels(direction) {
-      const reelsContainer = document.getElementById('reels');
-      const scrollAmount = 300;
-      reelsContainer.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-    }
-
-    // Ensure only one video plays at a time
+    // Play only one video at a time
     const videos = document.querySelectorAll("video");
     videos.forEach(video => {
       video.addEventListener("play", () => {
         videos.forEach(other => { if (other !== video) other.pause(); });
       });
     });
+
+    function scrollReels(direction) {
+      document.getElementById('reels').scrollBy({ left: direction * 300, behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
