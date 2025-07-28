@@ -7,7 +7,7 @@
   <title>Thank You - CORTEX</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel + Lead Event -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,33 +17,15 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '674390248964869', {}, {autoConfig: true});
+    fbq('init', '1563826825069654');
     fbq('track', 'PageView');
     fbq('track', 'Lead');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=674390248964869&ev=PageView&noscript=1" />
+      src="https://www.facebook.com/tr?id=1563826825069654&ev=PageView&noscript=1" />
   </noscript>
-  <!-- End Meta Pixel Code -->
-
-  <!-- CAPI: Lead -->
-  <script>
-    fetch("https://graph.facebook.com/v20.0/674390248964869/events?access_token=EAAJlQzmwp6ABPDMFs5Ew3QhQrQlrU1gJXWFLRdMnZAhcqalZCBhk5ZBeb9TjSDzmNXfK5tr6aXQEFlokftkHLttffYzdiWORWA7qsQapQYdeCuUc71FpnBTZB1IkbrKpOTDRGDSk2JlahyckmKj4UZAB1kzi4hZAHfckqsXerXtTuDnZBhExcVkHZAlzjmNleqZBxGQZDZD", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: [
-          {
-            event_name: "Lead",
-            event_time: Math.floor(Date.now() / 1000),
-            action_source: "website",
-            event_source_url: window.location.href
-          }
-        ]
-      })
-    });
-  </script>
+  <!-- End Meta Pixel -->
 
   <style>
     body {
@@ -64,7 +46,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="thank-box">
     <h1 class="text-4xl font-bold mb-4">🎉 Thank You!</h1>
@@ -73,6 +54,7 @@
   </div>
 
   <script>
+    // Redirect after 2 seconds
     setTimeout(() => {
       window.location.href = "https://t.me/cortex_manager";
     }, 2000);
